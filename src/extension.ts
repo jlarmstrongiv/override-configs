@@ -5,9 +5,7 @@ export function getAndValidateExtension(filePath: string): string {
   switch (extension) {
     case "json":
     case "js":
-    case "mjs":
     case "cjs":
-    case "ts":
       return extension;
     default:
       throw new Error(`[override-configs]: invalid extension: "${extension}"`);

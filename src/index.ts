@@ -5,24 +5,17 @@ import { loadConfig } from "./loadConfig";
 import { normalizeConfig } from "./normalizeConfig";
 
 interface Config {
-  [key: string]: string;
+  [key: string]: any;
 }
-interface Options {
-  type?: "module";
+export interface OverrideConfigsOptions {
   silent?: boolean;
 }
-/**
- *
- * @param defaultConfig - default config object values
- * @param overrideFilePaths - override files to load, lodash.merge order
- * @param options - options
- * @returns merged configs
- */
+
 export function overrideConfigs<T extends Config = Config>(
   defaultConfig: T,
   overrideFilePaths: string | string[],
   args: any[] = [],
-  options: Options = {}
+  options: OverrideConfigsOptions = {}
 ): T | Promise<T> {
   const overrideFilePathArray = ensureArray(overrideFilePaths);
 
@@ -30,10 +23,7 @@ export function overrideConfigs<T extends Config = Config>(
   let hasPromises = false;
 
   for (const overrideFilePath of overrideFilePathArray) {
-    const config = normalizeConfig(
-      loadConfig(overrideFilePath, options.type),
-      args
-    );
+    const config = normalizeConfig(loadConfig(overrideFilePath), args);
     if (isPromise(config)) {
       hasPromises = true;
     }

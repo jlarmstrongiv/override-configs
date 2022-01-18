@@ -1,3 +1,6 @@
-export function normalizeConfig(config: any, args: any[]) {
-  return config === "function" ? config(...args) : config;
+export function normalizeConfig(
+  config: object | ((...args: any[]) => void),
+  args: any[]
+) {
+  return typeof config === "function" ? config(...args) : config;
 }

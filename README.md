@@ -20,17 +20,17 @@ const overrideConfigPaths = [path.join(__dirname, "config.override.js")];
 const args = [{ webpack: {} }];
 const options = { type: module, silent: true };
 
-module.exports = overrideConfigs(
+module.exports = overrideConfigs({
   defaultConfig,
   overrideConfigPaths,
   args,
-  options
-);
+  options,
+});
 ```
 
 Expectations:
 
-- Config file types include: `json`, `js`, `cjs`, `mjs`, `ts`.
+- Config file types include: `json`, `js`.
 - Config must be the default export.
 - Config may be an object or a function.
 
