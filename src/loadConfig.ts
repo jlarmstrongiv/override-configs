@@ -4,8 +4,6 @@ import { getAndValidateExtension } from "./extension";
 // https://github.com/radarsu/ts-import/blob/master/src/index.ts#L177
 // const compileCommand = `npx -p typescript tsc --project "${tmpTsConfigPath}"`;
 
-// TODO: build system
-
 export function loadConfig(
   filePath: string
 ): object | ((...args: any[]) => void) {
