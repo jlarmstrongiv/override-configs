@@ -18,7 +18,7 @@ const overrideFilePaths = [path.join(__dirname, "config.override.js")];
 
 // optional
 const args = [{ webpack: {} }];
-const options = { type: module, silent: true };
+const options = { silent: true };
 
 module.exports = overrideConfigs(
   defaultConfig,
