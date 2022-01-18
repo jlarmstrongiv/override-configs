@@ -2,7 +2,7 @@
 
 ## Installation
 
-Install (npm package)[https://www.npmjs.com/package/override-configs]:
+Install [npm package](https://www.npmjs.com/package/override-configs):
 
 ```bash
 npm install override-configs
@@ -34,7 +34,7 @@ Expectations:
 - Config must be the default export.
 - Config may be an object or a function.
 
-Configs are merged in the order of (lodash.merge)[https://lodash.com/docs/4.17.15#merge].
+Configs are merged in the order of [lodash.merge](https://lodash.com/docs/4.17.15#merge).
 
 ## License
 
