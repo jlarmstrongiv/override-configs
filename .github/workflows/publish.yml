@@ -22,13 +22,13 @@ jobs:
       with:
         path: node_modules
         key: ${{ matrix.node-version }}-${{ runner.OS }}-build-${{ hashFiles('package.json') }}
-    - name: Build
+    - name: Install
       if: steps.cache-modules.outputs.cache-hit != 'true'
-      run: |
-        npm install
-        npm run build
+      run: npm install
     - name: Test
       run: npm run test
+    - name: Build
+      run: npm run build
   publish:
     name: Publish
     needs: test
@@ -42,14 +42,13 @@ jobs:
       with:
         path: node_modules
         key: 14.x-${{ runner.OS }}-build-${{ hashFiles('package.json') }}
-    - name: Build
+    - name: Install
       if: steps.cache-modules.outputs.cache-hit != 'true'
-      run: |
-        npm install
-        npm run build
+      run: npm install
     - name: Test
       run: npm run test
-
+    - name: Build
+      run: npm run build
     - name: Publish
       uses: mikeal/merge-release@master
       env:
