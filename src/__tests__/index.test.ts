@@ -1,18 +1,20 @@
 import path from "path";
-import { overrideConfigs } from ".";
+import { overrideConfigs } from "..";
 
 const overrideFilePaths = ["json", "js", "cjs"].map((extension) => {
-  return path.join(__dirname, "..", "spec", `demo.config.${extension}`);
+  return path.join(__dirname, "..", "__spec__", `demo.config.${extension}`);
 });
+overrideFilePaths.push(path.join(__dirname, "nonexistantConfig.json"));
 
 test("loads configs without error", async () => {
   // TODO: compiler issue https://github.com/developit/microbundle/issues?q=dynamic+import
   // https://www.voidcanvas.com/import-vs-require/
   // “Currently when you use import in your code, your transpilers transpile it back to require, the commonJS moduling system. So for the time being both are same.”
+
   const config = await overrideConfigs<{ configType: string }>(
     { configType: "default" },
     overrideFilePaths
   );
 
-  expect(config.configType).toBeTruthy();
+  expect(config.configType).toBe("cjs");
 });
