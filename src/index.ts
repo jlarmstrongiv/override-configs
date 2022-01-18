@@ -17,13 +17,19 @@ export function overrideConfigs<T extends Config = Config>(
   args: any[] = [],
   options: OverrideConfigsOptions = {}
 ): T | Promise<T> {
+  // default options
+  options.silent ??= false;
+
   const overrideFilePathArray = ensureArray(overrideFilePaths);
 
   const overrideConfigs: any[] = [];
   let hasPromises = false;
 
   for (const overrideFilePath of overrideFilePathArray) {
-    const config = normalizeConfig(loadConfig(overrideFilePath), args);
+    const config = normalizeConfig(
+      loadConfig(overrideFilePath, options.silent),
+      args
+    );
     if (isPromise(config)) {
       hasPromises = true;
     }

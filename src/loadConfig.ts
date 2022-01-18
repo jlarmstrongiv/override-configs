@@ -5,7 +5,8 @@ import { getAndValidateExtension } from "./extension";
 // const compileCommand = `npx -p typescript tsc --project "${tmpTsConfigPath}"`;
 
 export function loadConfig(
-  filePath: string
+  filePath: string,
+  silent: boolean
 ): object | ((...args: any[]) => void) {
   const extension = getAndValidateExtension(filePath);
   switch (extension) {
@@ -15,6 +16,10 @@ export function loadConfig(
       try {
         return require(filePath);
       } catch (error) {
+        !silent &&
+          console.log(
+            `[override-configs]: config file not found: "${filePath}"`
+          );
         return {};
       }
     default:
