@@ -14,23 +14,23 @@ npm install override-configs
 import { overrideConfigs } from "override-configs";
 
 const defaultConfig = { NODE_ENV: "production" };
-const overrideConfigPaths = [path.join(__dirname, "config.override.js")];
+const overrideFilePaths = [path.join(__dirname, "config.override.js")];
 
 // optional
 const args = [{ webpack: {} }];
 const options = { type: module, silent: true };
 
-module.exports = overrideConfigs({
+module.exports = overrideConfigs(
   defaultConfig,
-  overrideConfigPaths,
+  overrideFilePaths,
   args,
-  options,
-});
+  options
+);
 ```
 
 Expectations:
 
-- Config file types include: `json`, `js`.
+- Config file types include: `json`, `js`, `cjs`.
 - Config must be the default export.
 - Config may be an object or a function.
 
