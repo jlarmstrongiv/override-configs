@@ -4,7 +4,7 @@ import { overrideConfigs } from "..";
 const overrideFilePaths = ["json", "js", "cjs"].map((extension) => {
   return path.join(__dirname, "..", "__spec__", `demo.config.${extension}`);
 });
-overrideFilePaths.push(path.join(__dirname, "nonexistantConfig.json"));
+overrideFilePaths.push(path.join(__dirname, "nonexistentConfig.json"));
 
 test("loads configs without error", async () => {
   // TODO: compiler issue https://github.com/developit/microbundle/issues?q=dynamic+import
