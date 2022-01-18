@@ -1,0 +1,6 @@
+src/
+node_modules/
+.codesandbox/
+.github/
+jest.config.cjs
+tsconfig.json
