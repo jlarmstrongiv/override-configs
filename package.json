@@ -1,6 +1,7 @@
 {
   "name": "override-configs",
   "description": "An NPM package to help you override and merge your config files.",
+  "license": "MIT",
   "version": "0.0.1",
   "type": "module",
   "source": "src/index.ts",
