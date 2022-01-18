@@ -18,7 +18,8 @@ export function overrideConfigs<T extends Config = Config>(
   options: OverrideConfigsOptions = {}
 ): T | Promise<T> {
   // default options
-  options.silent ??= false;
+  // Node14 support https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_nullish_assignment
+  options.silent = options.silent || false;
 
   const overrideFilePathArray = ensureArray(overrideFilePaths);
 
