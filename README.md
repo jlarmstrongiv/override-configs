@@ -11,7 +11,7 @@ npm install override-configs
 ## Usage
 
 ```ts
-import { overrideConfigs } from "override-configs";
+const overrideConfigs = require("override-configs");
 
 const defaultConfig = { NODE_ENV: "production" };
 const overrideFilePaths = [path.join(__dirname, "config.override.js")];

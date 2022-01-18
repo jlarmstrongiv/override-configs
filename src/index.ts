@@ -43,3 +43,5 @@ export function overrideConfigs<T extends Config = Config>(
     return merge(defaultConfig, ...overrideConfigs);
   }
 }
+
+export default overrideConfigs;
