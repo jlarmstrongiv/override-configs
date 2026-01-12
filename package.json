@@ -27,7 +27,7 @@
     "@types/is-promise": "^2.2.0",
     "@types/jest": "^30.0.0",
     "@types/lodash.merge": "^4.6.6",
-    "@types/node": "^24.0.0",
+    "@types/node": "^25.0.6",
     "jest": "^30.0.0",
     "microbundle": "^0.15.0",
     "ts-jest": "^29.2.5",
